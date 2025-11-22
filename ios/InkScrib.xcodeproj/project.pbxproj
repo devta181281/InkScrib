@@ -11,6 +11,12 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		5A4DCA05169147AFAA3F7C14 /* QEBradenHill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 742933B59BA54CF586502F38 /* QEBradenHill.ttf */; };
+		EA7FD94BE5AD4280AC66DC51 /* QEDaveMergens.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAD4F29194F4C988AE728B5 /* QEDaveMergens.ttf */; };
+		5F6A7A288B814D67943C6365 /* QEDavidReid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD630A34D12B4DDDB3EC232A /* QEDavidReid.ttf */; };
+		3405DD3A94E942F6B79E1B7C /* QEDonaldRoss.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88D33DB4BBA54D37BC52317D /* QEDonaldRoss.ttf */; };
+		403C25AB57E94D5892E66E8B /* QERuthStafford.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3737C27A6934A33924DBEA9 /* QERuthStafford.ttf */; };
+		F5E1A43EB3404DD0BAC1115E /* Caveat-Regular.ttf.js in Resources */ = {isa = PBXBuildFile; fileRef = 7C6DB94BBEA34B85B8755C12 /* Caveat-Regular.ttf.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = InkScrib/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = InkScrib/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		742933B59BA54CF586502F38 /* QEBradenHill.ttf */ = {isa = PBXFileReference; name = "QEBradenHill.ttf"; path = "../assets/fonts/QEBradenHill.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FAAD4F29194F4C988AE728B5 /* QEDaveMergens.ttf */ = {isa = PBXFileReference; name = "QEDaveMergens.ttf"; path = "../assets/fonts/QEDaveMergens.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AD630A34D12B4DDDB3EC232A /* QEDavidReid.ttf */ = {isa = PBXFileReference; name = "QEDavidReid.ttf"; path = "../assets/fonts/QEDavidReid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		88D33DB4BBA54D37BC52317D /* QEDonaldRoss.ttf */ = {isa = PBXFileReference; name = "QEDonaldRoss.ttf"; path = "../assets/fonts/QEDonaldRoss.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A3737C27A6934A33924DBEA9 /* QERuthStafford.ttf */ = {isa = PBXFileReference; name = "QERuthStafford.ttf"; path = "../assets/fonts/QERuthStafford.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7C6DB94BBEA34B85B8755C12 /* Caveat-Regular.ttf.js */ = {isa = PBXFileReference; name = "Caveat-Regular.ttf.js"; path = "../assets/fonts/Caveat-Regular.ttf.js"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +86,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				27DFE0DA0544477F91893CA0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -96,6 +109,20 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		27DFE0DA0544477F91893CA0 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				742933B59BA54CF586502F38 /* QEBradenHill.ttf */,
+				FAAD4F29194F4C988AE728B5 /* QEDaveMergens.ttf */,
+				AD630A34D12B4DDDB3EC232A /* QEDavidReid.ttf */,
+				88D33DB4BBA54D37BC52317D /* QEDonaldRoss.ttf */,
+				A3737C27A6934A33924DBEA9 /* QERuthStafford.ttf */,
+				7C6DB94BBEA34B85B8755C12 /* Caveat-Regular.ttf.js */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -159,6 +186,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				5A4DCA05169147AFAA3F7C14 /* QEBradenHill.ttf in Resources */,
+				EA7FD94BE5AD4280AC66DC51 /* QEDaveMergens.ttf in Resources */,
+				5F6A7A288B814D67943C6365 /* QEDavidReid.ttf in Resources */,
+				3405DD3A94E942F6B79E1B7C /* QEDonaldRoss.ttf in Resources */,
+				403C25AB57E94D5892E66E8B /* QERuthStafford.ttf in Resources */,
+				F5E1A43EB3404DD0BAC1115E /* Caveat-Regular.ttf.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

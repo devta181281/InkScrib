@@ -11,6 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HandwritingStyle, PaperStyle } from '../types';
 import { defaultHandwritingStyles, defaultPaperStyles } from '../utils/defaultStyles';
+import { availableFonts, getFontByName } from '../utils/fontUtils';
 
 interface EditorScreenProps {
     navigation: any;
@@ -27,6 +28,7 @@ export const EditorScreen: React.FC<EditorScreenProps> = ({ navigation }) => {
     const [wordCount, setWordCount] = useState(0);
     const [showStylePicker, setShowStylePicker] = useState(false);
     const [showPaperPicker, setShowPaperPicker] = useState(false);
+    const [showFontPicker, setShowFontPicker] = useState(false);
 
     const handleTextChange = (newText: string) => {
         setText(newText);
@@ -102,7 +104,7 @@ export const EditorScreen: React.FC<EditorScreenProps> = ({ navigation }) => {
                                 ]}
                             />
                             <Text style={styles.pickerText}>
-                                Size: {selectedStyle.size}px • Slant: {selectedStyle.slant}°
+                                {getFontByName(selectedStyle.font)?.displayName || selectedStyle.font} • Size: {selectedStyle.size}px • Slant: {selectedStyle.slant}°
                             </Text>
                         </View>
                         <Text style={styles.pickerArrow}>▼</Text>
@@ -131,6 +133,43 @@ export const EditorScreen: React.FC<EditorScreenProps> = ({ navigation }) => {
                                     <Text style={styles.styleOptionText}>
                                         Style {index + 1} • {style.size}px
                                     </Text>
+                                </TouchableOpacity>
+                            ))}
+                        </View>
+                    )}
+                </View>
+
+                {/* Font Selection */}
+                <View style={styles.card}>
+                    <Text style={styles.sectionTitle}>Font</Text>
+                    <TouchableOpacity
+                        style={styles.pickerButton}
+                        onPress={() => setShowFontPicker(!showFontPicker)}
+                    >
+                        <Text style={styles.pickerText}>
+                            {getFontByName(selectedStyle.font)?.displayName || selectedStyle.font}
+                        </Text>
+                        <Text style={styles.pickerArrow}>▼</Text>
+                    </TouchableOpacity>
+
+                    {showFontPicker && (
+                        <View style={styles.pickerOptions}>
+                            {availableFonts.map((font) => (
+                                <TouchableOpacity
+                                    key={font.name}
+                                    style={[
+                                        styles.styleOption,
+                                        selectedStyle.font === font.name && styles.styleOptionSelected,
+                                    ]}
+                                    onPress={() => {
+                                        setSelectedStyle({
+                                            ...selectedStyle,
+                                            font: font.name,
+                                        });
+                                        setShowFontPicker(false);
+                                    }}
+                                >
+                                    <Text style={styles.styleOptionText}>{font.displayName}</Text>
                                 </TouchableOpacity>
                             ))}
                         </View>

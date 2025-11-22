@@ -2,7 +2,7 @@ import { HandwritingStyle, PaperStyle } from '../types';
 
 export const defaultHandwritingStyles: HandwritingStyle[] = [
     {
-        font: 'Caveat',
+        font: 'QEBradenHill',
         size: 20,
         slant: 0,
         spacing_line: 1.5,
@@ -10,7 +10,7 @@ export const defaultHandwritingStyles: HandwritingStyle[] = [
         ink_color: '#000000',
     },
     {
-        font: 'Caveat',
+        font: 'QEDaveMergens',
         size: 22,
         slant: 4,
         spacing_line: 1.4,
@@ -18,7 +18,7 @@ export const defaultHandwritingStyles: HandwritingStyle[] = [
         ink_color: '#1b3fd6',
     },
     {
-        font: 'Caveat',
+        font: 'QEDavidReid',
         size: 18,
         slant: -2,
         spacing_line: 1.6,

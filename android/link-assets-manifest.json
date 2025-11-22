@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Caveat-Regular.ttf.js",
+      "sha1": "bb9068aecb5f137b2f5255fca2a027af85855d0f"
+    },
+    {
+      "path": "assets/fonts/QEBradenHill.ttf",
+      "sha1": "4e7629d5392c302ca863ffb7bdeb0aaffeb13ce1"
+    },
+    {
+      "path": "assets/fonts/QEDaveMergens.ttf",
+      "sha1": "daab69fe5f31404fef79555aaed46e017ac9b489"
+    },
+    {
+      "path": "assets/fonts/QEDavidReid.ttf",
+      "sha1": "766983037cf47e205fb4a0c0b59fdd872dc6b000"
+    },
+    {
+      "path": "assets/fonts/QEDonaldRoss.ttf",
+      "sha1": "e32505bd851945a43d3172ac9730c91de8c67f76"
+    },
+    {
+      "path": "assets/fonts/QERuthStafford.ttf",
+      "sha1": "7c0964ffe6342f7461afec3545dd7a59fb677885"
+    }
+  ]
+}

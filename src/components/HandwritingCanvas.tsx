@@ -6,7 +6,7 @@ import {
     Text as SkiaText,
     Group,
     Image,
-    matchFont,
+    useFont,
 } from '@shopify/react-native-skia';
 import { HandwritingStyle, PaperStyle } from '../types';
 import {
@@ -14,6 +14,7 @@ import {
     splitIntoPages,
     generateCharacterPositions,
 } from '../utils/textLayout';
+import { getFontRequirePath } from '../utils/fontUtils';
 
 interface HandwritingCanvasProps {
     text: string;
@@ -33,13 +34,14 @@ export const HandwritingCanvas: React.FC<HandwritingCanvasProps> = ({
 }) => {
     const { width, height } = Dimensions.get('window');
 
-    // Use system font temporarily
-    const font = matchFont({
-        fontFamily: 'cursive',
-        fontSize: style.size,
-        fontStyle: 'normal',
-        fontWeight: 'normal',
-    });
+    // Load the selected font dynamically
+    const fontSource = getFontRequirePath(style.font);
+    const font = useFont(fontSource, style.size);
+
+    // If font is not loaded yet, return null or loading state
+    if (!font) {
+        return <View style={styles.container} />;
+    }
 
     // Break text into lines
     const lines = breakTextIntoLines(text, style, font);

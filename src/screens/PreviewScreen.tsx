@@ -12,6 +12,7 @@ import { HandwritingCanvas } from '../components/HandwritingCanvas';
 import { HandwritingStyle, PaperStyle } from '../types';
 import RNFS from 'react-native-fs';
 import { generatePDF } from 'react-native-html-to-pdf';
+import { getFontByName, getCSSFontFamily, getFontBase64 } from '../utils/fontUtils';
 
 interface PreviewScreenProps {
     route: any;
@@ -32,6 +33,19 @@ export const PreviewScreen: React.FC<PreviewScreenProps> = ({
 
     const handleExport = async () => {
         try {
+            // Get font information
+            const fontInfo = getFontByName(style.font);
+            const fontFamily = getCSSFontFamily(style.font);
+
+            // Read font file as base64
+            let fontBase64 = '';
+            try {
+                fontBase64 = await getFontBase64(style.font);
+                console.log('Font loaded successfully for PDF, base64 length:', fontBase64.length);
+            } catch (error) {
+                console.warn('Could not load font file, using fallback:', error);
+            }
+
             // Create HTML content with the text in a handwritten style
             const htmlContent = `
                 <html>
@@ -39,8 +53,14 @@ export const PreviewScreen: React.FC<PreviewScreenProps> = ({
                         <meta charset="utf-8">
                         <title>Handwritten Document</title>
                         <style>
+                            ${fontBase64 ? `
+                            @font-face {
+                                font-family: '${fontFamily}';
+                                src: url(data:font/truetype;charset=utf-8;base64,${fontBase64}) format('truetype');
+                            }
+                            ` : ''}
                             body {
-                                font-family: 'Comic Sans MS', 'Segoe Script', cursive, sans-serif;
+                                font-family: ${fontBase64 ? `'${fontFamily}',` : ''} 'Comic Sans MS', 'Segoe Script', cursive, sans-serif;
                                 margin: 40px;
                                 background-color: #ffffff;
                                 background-image: linear-gradient(transparent 23px, #dddddd 24px);
@@ -68,24 +88,24 @@ export const PreviewScreen: React.FC<PreviewScreenProps> = ({
                     </head>
                     <body>
                         <div class="content">${text.split(' ').map(word =>
-                            `<span class="word">${word.split('').map(char =>
-                                `<span class="character">${char}</span>`
-                            ).join('')}</span>`
-                        ).join(' ')}</div>
+                `<span class="word">${word.split('').map(char =>
+                    `<span class="character">${char}</span>`
+                ).join('')}</span>`
+            ).join(' ')}</div>
                     </body>
                 </html>
             `;
-            
+
             // Options for PDF generation
             const options = {
                 html: htmlContent,
                 fileName: 'handwritten',
                 directory: 'Documents',
             };
-            
+
             // Generate PDF
             const pdf = await generatePDF(options);
-            
+
             Alert.alert(
                 'Success',
                 `PDF saved to: ${pdf.filePath}`,
